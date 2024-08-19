@@ -73,7 +73,7 @@ class App:
         for i in range(3):
             self.stats.grid_columnconfigure(i, weight=1)
 
-        self.result = Label(self.root, text="Nothing here yet...", bg="#AAA", font=("Arial", 15, 'italic'), anchor='center', height=2)
+        self.result = Label(self.root, text="Nothing here yet...", bg=BG, font=("Arial", 15, 'italic'), anchor='center', height=2)
         self.result.pack(fill=X, side=BOTTOM)
 
     def button(self, id: int) -> Button:
