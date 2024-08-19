@@ -55,8 +55,8 @@ class App:
                       height=100, width=100)
 
     def __init__(self):
-        self.ai = AI(memory=100, 
-                     pattern=10, 
+        self.ai = AI(memory=250, 
+                     pattern=50, 
                      exponent=2)
         
         self.games = 0

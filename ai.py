@@ -24,9 +24,9 @@ class AI:
         return 2
     
     def predict(self) -> int:
-        check_len = min(len(self.history) - 1, self.pattern)
+        check_len = min(len(self.history), self.pattern)
         check_pattern = self.history[-check_len:]
-        votes = [0, 0, 0]
+        votes = [1, 1, 1]
 
         # ah yes, O(n^3) complexity
         while check_len > 0:
@@ -37,10 +37,9 @@ class AI:
                         match = False
                         break
                 if match and i+check_len < len(self.history):
-                    votes[self.win(self.history[i+check_len])] += check_len ** self.exp
+                    votes[(self.history[i+check_len])] += check_len ** self.exp
 
             check_len -= 1
+            check_pattern.pop(0)
 
-        max_votes = max(votes)
-        candidates = [index for index, vote in enumerate(votes) if vote == max_votes]
-        return random.choice(candidates)
+        return self.win(random.choices(range(3), weights=votes, k=1)[0])
