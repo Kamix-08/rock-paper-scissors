@@ -1,21 +1,10 @@
-<style>
-    #a {
-        text-align: center;
-        font-weight: bold;
-        font-size: 24px;
-    }
-</style>
-
-<pre id="a">
-AI that learns your <i>rock, paper, scissors</i> play style
-</pre>
+<pre align="center"><b>AI that learns your <i>rock, paper, scissors</i> play style</b></pre>
 
 ![Python](https://img.shields.io/badge/made_with-Python-blue)
 
 <br>
 
-![img1](./img/img1.png)
-![img2](./img/img2.png)
+<img src="./img/img1.png" alt="img1" width="49%"> <img src="./img/img2.png" alt="img2" width="49%">
 
 ---
 
