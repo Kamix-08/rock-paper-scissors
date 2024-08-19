@@ -1,5 +1,6 @@
 from tkinter import *
 from PIL import ImageTk, Image
+import json
 
 from ai import AI
 
@@ -68,9 +69,12 @@ class App:
             2: "scissors"
         }
 
-        self.ai = AI(memory=250, 
-                     pattern=50, 
-                     exponent=2)
+        with open('./data.json', 'r') as file:
+            data = json.load(file)
+
+        self.ai = AI(memory=data["memory"], 
+                    pattern=data["pattern"], 
+                    exponent=data["exponent"])
         
         self.games = 0
         self.wins = 0
