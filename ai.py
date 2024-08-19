@@ -1,13 +1,13 @@
 import random
 
-class ai:
-    def __init__(self, memory: int, pattern: int, p: float = 2.0):
+class AI:
+    def __init__(self, memory: int, pattern: int, exponent: float = 2.0):
         self.history = []
 
         self.memory = memory
         self.pattern = pattern
 
-        self.P = p
+        self.exp = exponent
 
     def append(self, s: int):
         self.history.append(s)
@@ -15,8 +15,13 @@ class ai:
         if len(self.history) > len(self.pattern):
             self.history.pop(0)
 
-    def win(s: int) -> int:
-        return (s+2)%3
+    def win(self, s: int) -> int:
+        return (s+1)%3
+    
+    def res(self, a: int, b: int) -> int:
+        if a == self.win(b): return 0
+        if a == b:           return 1
+        return 2
     
     def predict(self) -> int:
         check_len = min(len(self.history) - 1, self.pattern)
@@ -31,8 +36,8 @@ class ai:
                     if self.history[i+j] != check_pattern[j]:
                         match = False
                         break
-                if match:
-                    votes[self.win(self.history[i+check_len])] += check_len ** self.P
+                if match and i+check_len < len(self.history):
+                    votes[self.win(self.history[i+check_len])] += check_len ** self.exp
 
             check_len -= 1
 
