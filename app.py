@@ -13,16 +13,16 @@ class App:
         self.ai.history.append(choice)
 
         if res == 0:
-            self.result.config(text=f"AI loses. ({self.games} : {(100 * self.wins/self.games):.2f}%)")
-            self.result.config(bg="#FF0000")
+            self.result.config(text=f"You won.\n({self.games} : {(100 * self.wins/self.games):.2f}%)")
+            self.result.config(bg="#00FF00")
         elif res == 1:
-            self.result.config(text=f"AI draws. ({self.games} : {(100 * self.wins/self.games):.2f}%)")
+            self.result.config(text=f"Draw.\n({self.games} : {(100 * self.wins/self.games):.2f}%)")
             self.result.config(bg="#FFFF00")
         else:
             self.wins += 1
 
-            self.result.config(text=f"AI wins. ({self.games} : {(100 * self.wins/self.games):.2f}%)")
-            self.result.config(bg="#00FF00")
+            self.result.config(text=f"AI wins.\n({self.games} : {(100 * self.wins/self.games):.2f}%)")
+            self.result.config(bg="#FF0000")
 
     def create_ui(self):
         self.title = Label(self.root, text="Choose:", bg=BG, font=("Arial", 25, 'bold'))
@@ -43,7 +43,7 @@ class App:
 
         self.group.place(relx=.5, rely=.5, anchor='center')
 
-        self.result = Label(self.root, text="Nothing here yet...", bg="#999", font=("Arial", 15, 'italic'), anchor='center', height=2)
+        self.result = Label(self.root, text="Nothing here yet...", bg="#999", font=("Arial", 15, 'italic'), anchor='center', height=3)
         self.result.pack(side=BOTTOM, fill=X)
 
     def button(self, name: str, id: int) -> Button:
