@@ -1,13 +1,11 @@
 import random
 
 class AI:
-    def __init__(self, memory: int, pattern: int, exponent: float = 2.0):
+    def __init__(self, memory: int, pattern: int):
         self.history = []
 
         self.memory = memory
         self.pattern = pattern
-
-        self.exp = exponent
 
     def append(self, s: int):
         self.history.append(s)
