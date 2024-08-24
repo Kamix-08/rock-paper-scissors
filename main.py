@@ -82,8 +82,7 @@ class App:
             data = json.load(file)
 
         self.ai = AI(memory=data["memory"], 
-                    pattern=data["pattern"], 
-                    exponent=data["exponent"])
+                    pattern=data["pattern"])
         
         self.prediction = self.ai.predict()
         self.games = 0
